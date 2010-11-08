@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{%block title %} Todo List: {{ list.name }} {% endblock %}
+
+{% block content %}
+      <header>
+        <h1>Todoost</h1>
+        <nav>
+          <a href="/">< back</a>
+        </nav>
+        <h2>Edit List</h2>
+      </header>
+      <form action="/edit-list/{{ list.id }}/" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <p><input type="submit" name="edit_list" value="Save Changes"></p>
+      </form>
+      <footer>
+      <a href="/delete-list/{{ list.id }}">Delete</a>
+      <a href="/comment-list/{{ list.id }}">Comment</a>
+      </footer>
+{% endblock %}

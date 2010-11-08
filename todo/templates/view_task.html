@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load comments %}
+{%block title %} Todo List: {{ list.name }} {% endblock %}
+
+{% block content %}
+      <header>
+        <h1>Todoost</h1>
+        <nav>
+          <a href="/">< back</a>
+        </nav>
+        <h2>View Task</h2>
+      </header>
+      <section>
+      <h3>Details</h3>
+      <ul>
+        <li>Task Name:<p>{{ task.name }}</p></li>
+        <li>Description:<p>{{ task.description }}</p></li>
+        <li>Completion: <span>{{ task.completion }}%</span></li>
+        <li>Priority: <span>{{ task.priority }}</span></li>
+        <li>Created at: <span>{{ task.date_created }}</span></li>
+        <li>Date Due: <span>{{ task.date_due }}</span></li>
+        <li>Assigned To: <span>{{ task.date_due }}</span></li>
+      </ul>
+      </section>
+      {% get_comment_list for task as comment_list %}
+      {% if comment_list %}
+      <section>
+      <h3>Comments</h3>
+        <ul>
+        {% for comment in comment_list %}
+          <li><a href="mailto:{{ comment.email }}">{{ comment.name }}</a>:<p>{{ comment.comment }}</p></li>
+        {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+      <footer>
+      <a href="/edit-task/{{ task.id }}">Edit</a>
+      <a href="/delete-task/{{ task.id }}">Delete</a>
+      <a href="/add-file/{{ task.id }}">Attach</a>
+      <a href="/comment-task/{{ task.id }}">Comment</a>
+      </footer>
+{% endblock %}

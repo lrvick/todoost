@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load comments %}
+{%block title %} Todo List: {{ list.name }} {% endblock %}
+
+{% block content %}
+      <header>
+      <h1>Add Comment</h1>
+      </header>
+      {% render_comment_form for task %}
+{% endblock %}

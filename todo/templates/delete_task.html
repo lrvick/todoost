@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{%block title %} Todo List: {{ list.name }} {% endblock %}
+
+{% block content %}
+      <header>
+      <h1>Delete Task</h1>
+      </header>
+      <p> Are you sure you intend to delete the task titled:</p>
+      <p>"{{ task.name }}"</p>
+      <footer>
+      <a href="/">Cancel</a>
+      <a href="/delete-task/{{ task.id }}/confirm">Confirm</a>
+      </footer>
+{% endblock %}

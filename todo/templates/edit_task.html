@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{%block title %} Todo List: {{ list.name }} {% endblock %}
+
+{% block content %}
+      <header>
+        <h1>Todoost</h1>
+        <nav>
+          <a href="/">< back</a>
+        </nav>
+        <h2>Edit Task</h2>
+      </header>
+      <form action="/edit-task/{{ task.id }}/" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <p><input type="submit" name="edit_task" value="Save to List"></p>
+      </form>
+{% endblock %}

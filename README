@@ -1,0 +1,31 @@
+ Todoost < http://github.com/lrvick/todoost >
+
+WHAT IS TODOOST?
+  A universal Django/HTML5 todo list for the masses. Meant for use with web 
+  browsers, Andorid devices, and i{Touch,Phone,Pad}. This is a live dump
+  from the running version at Todoost.com. If you see a bug please report
+  it, instead of proving it to us ;-)
+
+CURRENT FEATURES:
+
+ * The ability to automatically create a new list by visiting
+   http://your_list_name_here.yourdomain.com
+
+ * The ability to add and edit tasks and lists
+ 
+ * Basic commenting support
+
+ * Uses AJAX for all requests by default, but falls back to standard html
+ 
+ * Can be added to an i{Touch,Phone,Pad} home screen to be have as a
+   native application.
+
+
+NOTES
+ 
+  Many more features coming soon as this project is under active devleopment. 
+
+  Visit http://todoost.todoost.com for a live populated demo and to request 
+  and discuss existing features and desired ones.
+
+  See INSTALL file for up-to-date requirements and installation instructions.

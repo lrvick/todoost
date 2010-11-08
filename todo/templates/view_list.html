@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load comments %}
+{%block title %} Todo List: {{ list.name }} {% endblock %}
+
+{% block content %}
+      <header>
+        <h1>Todoost</h1>
+        <h2 style="display:none;"}{{ domain }} Todo</h2>
+      </header>
+      {% if has_tasks %}
+      {% for list in domain.lists.all %}
+        {% if list.tasks.all.count >= 1 %}
+        <h3 class="list-title"><a href="/edit-list/{{ list.id }}">{{ list.name }}</a></h3>
+        {% endif %}
+        <ul class="tasklist">
+        {% for task in list.tasks.all %}
+          {% get_comment_count for task as comment_count %}
+            <li class="{% if task.completion == 100 %}complete{% endif %}">
+              <span class="priority priority-{{ task.priority }}">{{ task.priority }}</span>
+              <span class="checkbox">
+                <a href="/check-task/{{ task.id }}">{% if task.completion == 100 %}X{% endif %}</a>
+              </span>
+              <a class="task" href="/view-task/{{ task.id }}">{{ task.name }}</a>
+              {% if comment_count > 0 %}
+              <span class="comment-count">{{ comment_count }}</span>
+              {% endif %}
+              <!--<span class="attachment-count">0</span>-->
+            </li>
+            <!--<a href="up">&uarr;</a><a href="down">&darr;</a>-->
+        {% endfor %}
+        </ul>
+      {% endfor %}
+      {% else %}
+      <p>Welcome to your new todoost!</p>
+      <p>Begin adding tasks to get started</p>
+      {% endif %}
+      <footer>
+      <a href="/add-task">+ Task</a>
+      <a href="/add-list">+ List</a>
+      <a href="/settings">Settings</a>
+      </footer>
+{% endblock %}

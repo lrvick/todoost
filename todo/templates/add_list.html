@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{%block title %} Todo List: {{ list.name }} {% endblock %}
+
+{% block content %}
+      <header>
+      <h1>Add List</h1>
+      </header>
+      <form action="/add-list/" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <p><input type="submit" name="add_list" value="Create List"></p>
+      </form>
+{% endblock %}

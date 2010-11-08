@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{%block title %} Todo List: {{ list.name }} {% endblock %}
+
+{% block content %}
+      <header>
+      <h1>Add File</h1>
+      </header>
+      <form action="" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" name="add_task" value="Add File">
+      </form>
+{% endblock %}
